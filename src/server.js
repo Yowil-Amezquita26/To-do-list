@@ -7,17 +7,20 @@ app.use(bodyParser.json())
 require('dotenv').config()
 const port = process.env.PORT || 8080;
 
-
-app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views')
-app.use('/', require('./router/webRoute'))
-
 const mongoose = require('mongoose');
 mongoose.connect(process.env.DATABASE_URL, 
     // {useNewUrlParser: true, useUnitfieldTopology: true}
 )
-    .then(() => console.log( yodasay.say("DataBase Connected")))
+    .then(() => console.log(yodasay.say( {text: "DataBase Connected!!"})))
     .catch(e => console.log(e))
+
+app.set('views', __dirname + '/views')
+app.set('view engine', 'ejs');
+
+app.use('/', require('./router/webRoute'))
+app.use('/user', require('./router/user'))
+
+
 
 app.use((req,res) =>{
     res.status(404).render('404', 

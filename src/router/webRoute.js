@@ -5,9 +5,11 @@ router.get ('/', (req, res) => {
     res.render('home', {title: "Home Page"})
 })
 
-router.get ('/login', (req, res) =>{
-    res.render('login', {title: 'Login'})
-})
+
+
+// router.get('/tickets',(req,res) =>{
+//     res.render('tickets', {title: 'Tickets'})
+// })
 
 
 module.exports = router
