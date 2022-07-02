@@ -3,9 +3,9 @@ const app = express();
 const yodasay =require('yodasay');
 const bodyParser = require("body-parser")
 app.use(bodyParser.urlencoded({ extended: false}))
-app.use(bodyParser.json())
+app.use(bodyParser.json()) 
 require('dotenv').config()
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8080; 
 
 const mongoose = require('mongoose');
 mongoose.connect(process.env.DATABASE_URL, 
