@@ -15,9 +15,9 @@ const userSchema = new Schema({
     signUpDate: { type: Date, default: Date.now() },
     ticket: [
         {
-        title: { type: String, default: 'First ticket' },
-        desciption: { type: String, default: 'Add your first ticket' },
-        status: { type: String, default: "Doing" }
+        title: { type: String},
+        desciption: { type: String},
+        status: { type: String}
       },
     ]
 })
