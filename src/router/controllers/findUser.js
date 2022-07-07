@@ -2,10 +2,10 @@ const User = require('../../models/userModel')
 
 
 async function findUser(req, res) {
-    const email = req.params.email
+    const userId = req.params.userId
     console.log('entro aqui')
     try{
-        const userDB = await User.findOne({email: email})
+        const userDB = await User.findOne({_id: userId})
         // console.log( userDB[0].ticket, 'klllllll')
         // console.log("Base de Dato Conectada")
         // console.log(userDB)

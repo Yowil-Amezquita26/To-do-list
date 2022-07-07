@@ -7,17 +7,17 @@ const editTicket = require('./controllers/editTicket');
 const registerNewUser = require('./controllers/registerNewUser');
 const deleteTicket = require('./controllers/deleteTicket');
 
-router.get('/:email', findUser)
+router.get('/:userId', findUser)
+
 
 
 router.get('/register', (req, res) => {
     res.render('register', { title: 'Singup' })
 })
-
 router.post('/register', registerNewUser)
 
-router.put('/:email/new-ticket', newTicket)
+router.put('/:userId/new-ticket', newTicket)
+router.put('/:userId/:id', editTicket)
+router.delete('/:userId/:id', deleteTicket)
 
-router.put('/:email/:id', editTicket)
-router.delete('/:email/:id', deleteTicket)
 module.exports = router;
