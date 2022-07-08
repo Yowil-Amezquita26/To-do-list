@@ -9,13 +9,11 @@ const port = process.env.PORT || 8080;
 
 const mongoose = require('mongoose');
 mongoose.connect(process.env.DATABASE_URL, 
-    // {useNewUrlParser: true, useUnitfieldTopology: true}
 )
     .then(() => console.log(yodasay.say( {text: "DataBase Connected!!"})))
     .catch(e => console.log(e))
 
 app.set('views', __dirname + '/views')
-app.set('view engine', 'ejs');
 
 app.use('/', require('./router/webRoute'))
 app.use('/user', require('./router/user'))
