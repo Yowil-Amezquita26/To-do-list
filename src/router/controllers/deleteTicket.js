@@ -1,10 +1,10 @@
 const User = require('../../models/userModel')
 
 async function deleteTicket(req,res){
-    const userId = req.params.userId
+    const email = req.params.email
     const id = req.params.id
     try {
-        const ticketDB = await User.findOneAndUpdate({_id: userId},{
+        const ticketDB = await User.findOneAndUpdate({email: email},{
             $pull:{ticket:{_id:id}}
         }
         )
