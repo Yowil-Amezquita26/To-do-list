@@ -7,7 +7,8 @@ const editTicket = require('./controllers/editTicket');
 const registerNewUser = require('./controllers/registerNewUser');
 const deleteTicket = require('./controllers/deleteTicket');
 
-router.get('/:email', findUser)
+router.get('/:userId', findUser)
+
 
 
 router.get('/register', (req, res) => {

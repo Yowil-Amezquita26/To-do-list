@@ -14,7 +14,8 @@ mongoose.connect(process.env.DATABASE_URL,
     .then(() => console.log(yodasay.say( {text: "DataBase Connected!!"})))
     .catch(e => console.log(e))
 
-
+app.set('views', __dirname + '/views')
+app.set('view engine', 'ejs');
 
 app.use('/', require('./router/webRoute'))
 app.use('/user', require('./router/user'))
@@ -29,6 +30,7 @@ app.use((req,res) =>{
 })  
 
 app.listen(port, () => {
+    console.log('server at your service in port', port)
     console.log(yodasay.say({
         text: `server at your service in port ${port}`
     }))

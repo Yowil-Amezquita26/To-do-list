@@ -4,10 +4,20 @@ async function editTicket(req,res){
     const email = req.params.email
     const _id = req.params.id
     const body = req.body
-    try {
-        const ticketDB = await User.ticket.findByIdAndUpdate(`ticket[0]._id:${_id}`)
 
-        console.log(ticketDB, 'hola');
+    try {
+        const ticketDB = await User.findOneAndUpdate({_id:userId, "ticket._id": id,}, {$set:{'ticket.$':body}})
+        console.log(ticketDB.ticket, "4546546")
+        // const ticketDB = await User.find().select({'ticket':{$elemMatch:{"_id":_id}}})
+        // const findTiket = await User.findById({_id: userId})
+        // const ticketFound = await findTiket.ticket.filter((element) => {
+        //     return element._id == id
+        // })
+
+        // const ticket = await User.updateOne({_id:userId, "ticket._id": id}, {$set:{"ticket.$": body}})
+        // console.log(ticket)
+
+        // console.log(ticketDB, 'hola');
 
         // const result =  ticketDB.ticket.forEach( (e) => {
         //     if(_id === e._id){
@@ -19,10 +29,10 @@ async function editTicket(req,res){
         //     return e
         // })
 
-        if(ticketDB === null){
-            res.json({messaje: 'Ticket not Found'})
+        if(ticketDB ){
+            res.json({messaje:"Ticket Found",ticketDB })
         }else{
-            res.json({messaje:"Ticket Found"})
+            res.json({messaje: 'Ticket not Found'})
         }
     } catch (error) {
         res.json({menssaje: error})
