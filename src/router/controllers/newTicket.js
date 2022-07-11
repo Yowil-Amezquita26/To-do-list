@@ -1,7 +1,7 @@
 const User = require('../../models/userModel')
 
 async function newTicket(req,res){
-    const userId = req.params.email
+    const userId = req.params.userId
     const body = req.body
     console.log(body)
     await User.findOneAndUpdate({

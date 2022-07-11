@@ -17,8 +17,8 @@ router.get('/register', (req, res) => {
 
 router.post('/register', registerNewUser)
 
-router.put('/:email/new-ticket', newTicket)
+router.put('/:userId/new-ticket', newTicket)
 
-router.put('/:email/:id', editTicket)
-router.delete('/:email/:id', deleteTicket)
+router.put('/:userId/:id', editTicket)
+router.delete('/:userId/:id', deleteTicket)
 module.exports = router;
