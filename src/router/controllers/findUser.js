@@ -5,7 +5,6 @@ async function findUser(req, res) {
     const userId = req.params.userId
     try{
         const userDB = await User.findOne({_id: userId})
-        console.log(userDB)
         if(userDB === null){
             res.json({messaje: false, userDB})
         }else{

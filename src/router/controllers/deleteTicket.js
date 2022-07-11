@@ -10,14 +10,12 @@ async function deleteTicket(req,res){
             $pull:{ticket:{_id:id}}
         }
         )
-        console.log(ticketDB)
         if(ticketDB === null){
             res.json({messaje: 'Ticket not Found'})
         }else{
 
             res.json({messaje:"Ticket Found"})
         }
-        console.log(ticketDB)
     } catch (error) {
         res.json({menssaje: error})
     }
