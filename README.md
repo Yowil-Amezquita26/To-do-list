@@ -12,6 +12,17 @@ This proyect started as a training exercise to learn more the diferent technolog
 
 -[MongoDB](https://www.mongodb.com)
 
+## Routes
+
+-/register ===> to register a new user with name, last-name, email and password.
+
+-/:email/new-ticket ====> to add a new ticket or task, depending on the email(:email).
+
+-/:userId/:id ====> to edit a ticket that belongs to a user.
+
+-/:userId/:id ====> to delete a ticket that belongs to a user.
+
+
 
 ## Installation Needed
 
