@@ -14,9 +14,9 @@ mongoose.connect(process.env.DATABASE_URL,
     .catch(e => console.log(e))
 
 
-
-app.use('/', require('./router/webRoute'))
-app.use('/user', require('./router/user'))
+app.use(express.static(__dirname + "/public"))
+app.use('/api', require('./router/webRoute'))
+app.use('/api/user', require('./router/user'))
 
 
 
