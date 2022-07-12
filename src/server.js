@@ -13,7 +13,7 @@ mongoose.connect(process.env.DATABASE_URL,
     .then(() => console.log(yodasay.say( {text: "DataBase Connected!!"})))
     .catch(e => console.log(e))
 
-app.set('views', __dirname + '/views')
+
 
 app.use('/', require('./router/webRoute'))
 app.use('/user', require('./router/user'))
