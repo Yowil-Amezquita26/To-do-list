@@ -14,13 +14,13 @@ This proyect started as a training exercise to learn more the diferent technolog
 
 ## Routes
 
--/register ===> to register a new user with name, last-name, email and password.
+-/api/register ===> to register a new user with name, last-name, email and password.
 
--/:email/new-ticket ====> to add a new ticket or task, depending on the email(:email).
+-/api/:email/new-ticket ====> to add a new ticket or task, depending on the email(:email).
 
--/:userId/:id ====> to edit a ticket that belongs to a user.
+-/api/:userId/:id ====> to edit a ticket that belongs to a user.
 
--/:userId/:id ====> to delete a ticket that belongs to a user.
+-/api/:userId/:id ====> to delete a ticket that belongs to a user.
 
 
 

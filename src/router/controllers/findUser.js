@@ -13,7 +13,7 @@ async function findUser(req, res) {
 
 
     } catch(error){ 
-        res.json({messaje: 'Hola amiguito'})
+        res.json({messaje: error})
     }
 
 }
