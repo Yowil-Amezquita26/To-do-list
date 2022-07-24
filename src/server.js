@@ -1,5 +1,6 @@
 const express = require("express")
 const app = express();
+const swaggerDoc = require("swagger-ui-express")
 const yodasay =require('yodasay');
 const bodyParser = require("body-parser")
 app.use(bodyParser.urlencoded({ extended: false}))
@@ -14,14 +15,14 @@ mongoose.connect(process.env.DATABASE_URL,
     .catch(e => console.log(e))
 
 
-app.use(express.static(__dirname + "/public"))
+app.use(express.static(__dirname + "/views", swaggerDoc))
 app.use('/api', require('./router/webRoute'))
 app.use('/api/user', require('./router/user'))
 
 
 
 app.use((req,res) =>{
-    res.status(404).render('404', 
+    res.status(404).json('404', 
         {title: "404",
         description: "Error loading page"
     })

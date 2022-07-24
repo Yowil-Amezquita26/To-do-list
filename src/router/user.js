@@ -19,6 +19,6 @@ router.post('/register', registerNewUser)
 
 router.put('/:userId/new-ticket', newTicket)
 
-router.put('/:userId/:id', editTicket)
-router.delete('/:userId/:id', deleteTicket)
+router.put('/edit/:userId/:id', editTicket)
+router.delete('/delete/:userId/:id', deleteTicket)
 module.exports = router;
