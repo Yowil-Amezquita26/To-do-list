@@ -1,0 +1,228 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "This is a simple API created so a user can manage his task",
+      "version": "1.0.0",
+      "title": "Simple Task Manager Api"
+    },
+    "host": "virtserver.swaggerhub.com",
+    "basePath": "/YOWILAMEZQUITA380/Task-to-do/1.0.0",
+    "schemes": [
+      "https"
+    ],
+    "paths": {
+      "/api/user/:userId": {
+        "get": {
+          "tags": [
+            "Rutas"
+          ],
+          "summary": "get's the user",
+          "description": "By passing the id of the user you get the info related to that user\n",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "search results matching criteria",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/User"
+                }
+              }
+            },
+            "400": {
+              "description": "bad input parameter"
+            }
+          }
+        }
+      },
+      "/api/user/:userId/new-ticket": {
+        "put": {
+          "tags": [
+            "Rutas"
+          ],
+          "summary": "adds a new ticket to that user",
+          "description": "Adds an item to the system",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "ticket",
+              "description": "New ticket that a user creates",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/Ticket"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "ticket created"
+            },
+            "400": {
+              "description": "invalid input, object invalid"
+            },
+            "409": {
+              "description": "an existing item already exists"
+            }
+          }
+        }
+      },
+      "/api/user/:userId/register": {
+        "post": {
+          "tags": [
+            "Rutas"
+          ],
+          "summary": "adds a new user",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "user",
+              "description": "New user that registers",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "User Register"
+            },
+            "400": {
+              "description": "invalid input, object invalid"
+            },
+            "409": {
+              "description": "an existing item already exists"
+            }
+          }
+        }
+      },
+      "/api/user/edit/:userId/:ticketId": {
+        "put": {
+          "tags": [
+            "Rutas"
+          ],
+          "summary": "edit ticket",
+          "description": "Using the ticketId of a ticket to edit said ticket",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "ticket",
+              "description": "New ticket that a user creates",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/Ticket"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "ticket deleted"
+            },
+            "400": {
+              "description": "invalid input, object invalid"
+            }
+          }
+        }
+      },
+      "/api/user/delete/:userId/:ticketId": {
+        "delete": {
+          "tags": [
+            "Rutas"
+          ],
+          "summary": "delete ticket",
+          "description": "Using the ticketId of a ticket to delete said ticket",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "ticket",
+              "description": "New ticket that a user creates",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/Ticket"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "ticket deleted"
+            },
+            "400": {
+              "description": "invalid input, object invalid"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Yowil"
+          },
+          "last_name": {
+            "type": "string",
+            "example": "Amezquita"
+          },
+          "password": {
+            "type": "string",
+            "example": "really secure password"
+          },
+          "email": {
+            "type": "string",
+            "example": "First ticket"
+          },
+          "signUpDate": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2022-07-04T13:00:31.576+00:00"
+          },
+          "ticket": {
+            "$ref": "#/definitions/Ticket"
+          }
+        }
+      },
+      "Ticket": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "First ticket"
+          },
+          "description": {
+            "type": "string",
+            "example": "Start managing your task"
+          },
+          "status": {
+            "type": "string",
+            "example": "Doing"
+          }
+        }
+      }
+    }
+  }
