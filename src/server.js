@@ -1,6 +1,5 @@
 const express = require("express");
-const app = express(),
-  fs = require("fs");
+const app = express();
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require('./helper/swagger.json');
 const swaggerOptions = {
@@ -22,8 +21,8 @@ mongoose
   .then(() => console.log(yodasay.say({ text: "DataBase Connected!!" })))
   .catch((e) => console.log(e));
 
-app.use('', swaggerUi.serve, swaggerUi.setup(swaggerDocument,));
-app.use("/api", require("./router/webRoute"));
+app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// app.use("/api", require("./router/webRoute"));
 app.use("/api/user", require("./router/user"));
 
 app.use((req, res) => {
