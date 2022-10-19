@@ -13,9 +13,13 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 var cors = require('cors')
-app.use(cors())
 require("dotenv").config();
 const port = process.env.PORT || 8080;
+var corsOptions = {
+  origin: 'http://127.0.0.1:5173/',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+app.use(cors(corsOptions))
 
 const mongoose = require("mongoose");
 mongoose
