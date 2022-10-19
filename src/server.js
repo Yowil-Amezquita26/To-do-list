@@ -12,6 +12,8 @@ const yodasay = require("yodasay");
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+var cors = require('cors')
+app.use(cors())
 require("dotenv").config();
 const port = process.env.PORT || 8080;
 
