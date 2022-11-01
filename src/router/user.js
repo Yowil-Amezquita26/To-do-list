@@ -6,6 +6,7 @@ const newTicket = require('./controllers/newTicket');
 const editTicket = require('./controllers/editTicket');
 const registerNewUser = require('./controllers/registerNewUser');
 const deleteTicket = require('./controllers/deleteTicket');
+const verifieUser = require('./controllers/verifieUser');
 
 router.get('/:userId', findUser)
 
@@ -14,7 +15,7 @@ router.get('/:userId', findUser)
 router.get('/register', (req, res) => {
     res.render('register', { title: 'Singup' })
 })
-
+router.get('/verified/:email', verifieUser)
 router.post('/register', registerNewUser)
 
 router.put('/:userId/new-ticket', newTicket)
