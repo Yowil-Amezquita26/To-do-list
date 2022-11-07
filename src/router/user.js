@@ -8,7 +8,7 @@ const registerNewUser = require('./controllers/registerNewUser');
 const deleteTicket = require('./controllers/deleteTicket');
 const verifieUser = require('./controllers/verifieUser');
 
-router.get('/:userId', findUser)
+router.get('/:email', findUser)
 
 
 

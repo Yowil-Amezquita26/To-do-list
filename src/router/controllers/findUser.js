@@ -2,13 +2,13 @@ const User = require('../../models/userModel')
 
 
 async function findUser(req, res) {
-    const userId = req.params.userId
+    const email = req.params.userId
     try{
-        const userDB = await User.findOne({_id: userId})
+        const userDB = await User.findOne({email: email})
         if(userDB === null){
-            res.json({messaje: false, userDB})
+            res.json({messaje: "No User Found", userDB})
         }else{
-            res.json({messaje: true, userDB})
+            res.json({messaje: "User Found", userDB})
         }
 
 
