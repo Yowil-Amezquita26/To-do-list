@@ -17,7 +17,7 @@ async function editTicket(req,res){
             
         }
         if(status == "doing"){
-            const ticketDB = await User.findOneAndUpdate({_id:userId, "ticket.not_done._id": _id,}, {$set:{'ticket.not_done.$':body}})
+            const ticketDB = await User.findOneAndUpdate({_id:userId, "ticket.doing._id": _id,}, {$set:{'ticket.doing.$':body}})
             if(ticketDB ){
                 res.json({messaje:"Ticket Found",ticketDB, status })
             }else{
@@ -26,7 +26,7 @@ async function editTicket(req,res){
             
         }
         if(status == "done"){
-            const ticketDB = await User.findOneAndUpdate({_id:userId, "ticket.not_done._id": _id,}, {$set:{'ticket.not_done.$':body}})
+            const ticketDB = await User.findOneAndUpdate({_id:userId, "ticket.done._id": _id,}, {$set:{'ticket.done.$':body}})
             if(ticketDB ){
                 res.json({messaje:"Ticket Found",ticketDB, status })
             }else{
