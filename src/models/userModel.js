@@ -13,7 +13,7 @@ const userSchema = new Schema({
     sparse: true,
   },
   signUpDate: { type: Date, default: Date.now() },
-  ticket: [
+  tickets: [
     {
       title: { type: String },
       desciption: { type: String },
