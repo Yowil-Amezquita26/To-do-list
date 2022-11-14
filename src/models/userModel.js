@@ -13,33 +13,14 @@ const userSchema = new Schema({
     sparse: true,
   },
   signUpDate: { type: Date, default: Date.now() },
-  ticket: 
+  ticket: [
     {
-      not_done: [
-        {
-          title: { type: String },
-          desciption: { type: String },
-          status: { type: String },
-        },
-      ],
-
-      doing: [
-        {
-          title: { type: String },
-          desciption: { type: String },
-          status: { type: String },
-        },
-      ],
-      done: [
-        {
-          title: { type: String },
-          desciption: { type: String },
-          status: { type: String },
-        },
-      ],
+      title: { type: String },
+      desciption: { type: String },
+      status: { type: String },
     },
+  ],
 });
-
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
