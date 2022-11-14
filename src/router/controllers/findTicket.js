@@ -8,11 +8,12 @@ async function findTicket(req,res){
         
         const ticketDB = await User.findOne({_id:userId})
         if(ticketDB === null){
-            console.log(ticketDB.tickets);
-            const ticket = ticketDB.filter(ticket => ticket._id == _id)
-            res.json({messaje: "No Ticket Found", ticket})
+            // console.log(ticketDB.tickets);
+            res.json({messaje: "No Ticket Found"})
         }else{
-            res.json({messaje: "Ticket Found", ticketDB})
+            const ticket = ticketDB.filter(ticket => ticket._id == _id)
+            console.log(ticket)
+            res.json({messaje: "Ticket Found", ticket})
         }
     } catch (error) {
         res.json({menssaje: error})
