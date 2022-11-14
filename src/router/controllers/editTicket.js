@@ -7,7 +7,7 @@ async function editTicket(req,res){
     const status = req.body.status
     
     try {
-        const ticketDB = await User.findOneAndUpdate({_id:userId, "ticket._id": _id,}, {$set:{'ticket.$':body}})
+        const ticketDB = await User.findOneAndUpdate({_id:userId, "tickets._id": _id,}, {$set:{'tickets.$':body}})
 
         if(ticketDB ){
             res.json({messaje:"Ticket Found",ticketDB })
