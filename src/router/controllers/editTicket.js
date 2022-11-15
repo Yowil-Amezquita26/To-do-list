@@ -10,7 +10,7 @@ async function editTicket(req,res){
         const ticketDB = await User.findOneAndUpdate({_id:userId, "tickets._id": _id,}, {$set:{'tickets.$':body}})
 
         if(ticketDB ){
-            res.json({messaje:"Ticket Found",ticketDB })
+            res.json({messaje:"Ticket Found"})
         }else{
             res.json({messaje: 'Ticket not Found'})
         }
