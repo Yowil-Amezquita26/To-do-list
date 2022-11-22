@@ -6,7 +6,7 @@ async function deleteTicket(req,res){
 
     try {
         const ticketDB = await User.findOneAndUpdate({_id: userId},{
-            $pull:{ticket:{_id:id}}
+            $pull:{tickets:{_id:id}}
         }
         )
         if(ticketDB === null){
