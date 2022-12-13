@@ -12,12 +12,14 @@ const userSchema = new Schema({
     unique: true,
     sparse: true,
   },
+  profile_image: Array,
   signUpDate: { type: Date, default: Date.now() },
   tickets: [
     {
       title: { type: String },
       desciption: { type: String },
       status: { type: String },
+      images: { type: Array },
     },
   ],
 });
