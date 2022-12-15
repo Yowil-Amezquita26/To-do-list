@@ -19,7 +19,7 @@ const userSchema = new Schema({
       title: { type: String },
       desciption: { type: String },
       status: { type: String },
-      images: { type: Array },
+      images: [{ public_id: { type: String }, url: { type: String } }],
     },
   ],
 });
