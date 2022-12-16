@@ -2,18 +2,19 @@ const express = require("express");
 const app = express();
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require('./helper/swagger.json');
+const yodasay = require("yodasay");
+const bodyParser = require("body-parser");
+var cors = require('cors')
+require("dotenv").config();
+
 const swaggerOptions = {
   swaggerOptions: {
     validatorUrl: null
   }
 };
 
-const yodasay = require("yodasay");
-const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-var cors = require('cors')
-require("dotenv").config();
 const port = process.env.PORT || 8080;
 var corsOptions = {
   origin: '*',

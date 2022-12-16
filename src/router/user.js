@@ -8,6 +8,7 @@ const registerNewUser = require('./controllers/registerNewUser');
 const deleteTicket = require('./controllers/deleteTicket');
 const verifieUser = require('./controllers/verifieUser');
 const findTicket = require('./controllers/findTicket');
+const deleteImage = require('./controllers/deleteImage');
 
 router.get('/:email', findUser)
 
@@ -25,5 +26,6 @@ router.put('/:userId/new-ticket', newTicket)
 router.put('/edit/:userId/:id', editTicket)
 
 router.delete('/delete/:userId/:id', deleteTicket)
+router.delete('/delete-image/:public_id',deleteImage)
 
 module.exports = router;

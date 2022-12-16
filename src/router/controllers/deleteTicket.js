@@ -10,10 +10,10 @@ async function deleteTicket(req,res){
         }
         )
         if(ticketDB === null){
-            res.json({messaje: 'Ticket not Found'})
+            res.json({messaje: 'Ticket Deleted'})
         }else{
 
-            res.json({messaje:"Ticket Found"})
+            res.json({messaje:"Somenthing Happend"})
         }
     } catch (error) {
         res.json({menssaje: error})
