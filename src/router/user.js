@@ -26,6 +26,6 @@ router.put('/:userId/new-ticket', newTicket)
 router.put('/edit/:userId/:id', editTicket)
 
 router.delete('/delete/:userId/:id', deleteTicket)
-router.delete('/delete-image/:public_id',deleteImage)
+router.delete('/delete-image/:public_id/:image_id',deleteImage)
 
 module.exports = router;
