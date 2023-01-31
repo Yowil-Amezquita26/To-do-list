@@ -9,23 +9,21 @@ const deleteTicket = require('./controllers/deleteTicket');
 const verifieUser = require('./controllers/verifieUser');
 const findTicket = require('./controllers/findTicket');
 const deleteImage = require('./controllers/deleteImage');
+const authKey = require('../helper/authKey')
 
-router.get('/:email', findUser)
-
-
-
-router.get('/register', (req, res) => {
+router.get('/:email',authKey, findUser)
+router.get('/register',authKey, (req, res) => {
     res.render('register', { title: 'Singup' })
 })
-router.get('/get/:userId/:id', findTicket)
-router.get('/verified/:email', verifieUser)
+router.get('/get/:userId/:id',authKey, findTicket)
+router.get('/verified/:email',authKey, verifieUser)
 
-router.post('/register', registerNewUser)
+router.post('/register',authKey, registerNewUser)
 
-router.put('/:userId/new-ticket', newTicket)
-router.put('/edit/:userId/:id', editTicket)
+router.put('/:userId/new-ticket',authKey, newTicket)
+router.put('/edit/:userId/:id',authKey, editTicket)
 
-router.delete('/delete/:userId/:id', deleteTicket)
-router.delete('/delete-image/:public_id/:image_id',deleteImage)
+router.delete('/delete/:userId/:id',authKey, deleteTicket)
+router.delete('/delete-image/:public_id/:image_id',authKey, deleteImage)
 
 module.exports = router;

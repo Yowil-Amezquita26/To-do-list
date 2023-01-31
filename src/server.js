@@ -32,7 +32,7 @@ app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // app.use("/api", require("./router/webRoute"));
 app.use("/api/user", require("./router/user"));
 
-app.use((req, res) => {
+app.use((req, res,next) => {
   res
     .status(404)
     .json("404", { title: "404", description: "Error loading page" });
