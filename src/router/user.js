@@ -11,7 +11,7 @@ const findTicket = require('./controllers/findTicket');
 const deleteImage = require('./controllers/deleteImage');
 const authKey = require('../helper/authKey')
 
-router.get('/:email',authKey, findUser)
+router.get('/:email', findUser)
 router.get('/register',authKey, (req, res) => {
     res.render('register', { title: 'Singup' })
 })
