@@ -29,7 +29,6 @@ mongoose
   .catch((e) => console.log(e));
 
 app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-// app.use("/api", require("./router/webRoute"));
 app.use("/api/user", require("./router/user"));
 
 app.use((req, res,next) => {
